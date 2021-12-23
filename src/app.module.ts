@@ -1,3 +1,4 @@
+import { AuthModule } from './auth/auth.module';
 import { AppDummy } from './app.dummy';
 import { AppJapanService } from './app.japan.service';
 import { Event } from './entities/event.entity';
@@ -13,7 +14,7 @@ import ormConfigProd from './config/orm.config.prod';
 import { SchoolModule } from './school/school.module';
 
 @Module({
-  imports: [EventModule, SchoolModule,
+  imports: [EventModule, SchoolModule, AuthModule,
     ConfigModule.forRoot({
       isGlobal: true,
       load: [ormConfig],

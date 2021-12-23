@@ -1,5 +1,7 @@
 import { Controller, Post } from "@nestjs/common";
 import { InjectRepository } from '@nestjs/typeorm';
+import { Profile } from "src/auth/profile.entity";
+import { User } from "src/auth/user.entity";
 import { Repository } from 'typeorm';
 import { Subject } from './subject.entity';
 import { Teacher } from './teacher.entity';
@@ -15,26 +17,26 @@ export class TrainingController {
 
   @Post('/create')
   public async savingRelation() {
-    const subject = new Subject();
-    subject.name = 'Math';
+    // const subject = new Subject();
+    // subject.name = 'Math';
 
-    // const subject = await this.subjectRepository.findOne(3);
+    const subject = await this.subjectRepository.findOne(3);
 
-    const teacher1 = new Teacher();
-    teacher1.name = 'John Doe';
+    // const teacher1 = new Teacher();
+    // teacher1.name = 'John Doe';
 
-    const teacher2 = new Teacher();
-    teacher2.name = 'Harry Doe';
+    // const teacher2 = new Teacher();
+    // teacher2.name = 'Harry Doe';
 
-    subject.teachers = [teacher1, teacher2];
-    await this.teacherRepository.save(subject);
+    // subject.teachers = [teacher1, teacher2];
+    // await this.teacherRepository.save(subject);
 
     // How to use One to One
-    // const user = new User();
-    // const profile = new Profile();
+    const user = new User();
+    const profile = new Profile();
 
-    // user.profile = profile;
-    // user.profile = null;
+    user.profile = profile;
+    user.profile = null;
     // Save the user here
 
 
